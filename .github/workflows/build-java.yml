@@ -33,6 +33,7 @@ jobs:
           java-version: 17
           distribution: 'zulu'
           cache: maven
+
       - name: Build with Maven
         run: mvn -B package --file ./million-dollar-idea-core/pom.xml
 
@@ -41,6 +42,4 @@ jobs:
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
-        uses: advanced-security/maven-dependency-submission-action@v3
-        with:
-          directory: "./million-dollar-idea-core/"
+        uses: advanced-security/maven-dependency-submission-action@v3.0.3
