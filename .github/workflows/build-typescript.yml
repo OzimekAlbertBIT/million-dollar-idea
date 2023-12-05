@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
     paths:
       - "million-dollar-idea-ui/**" # Only run if only a UI file has changed
-  pull_request:
-    types: [ opened, synchronize, reopened ]
 
 jobs:
   build:
