@@ -1,7 +1,10 @@
-name: Build Typescript
+name: build ogreg-public
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - develop
     paths:
       - "million-dollar-idea-ui/**" # Only run if only a UI file has changed
   pull_request:
