@@ -1,7 +1,10 @@
 name: build ogreg-public
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - develop
     paths:
       - "million-dollar-idea-ui/**" # Only run if only a UI file has changed
   pull_request:
@@ -28,6 +31,9 @@ jobs:
       - name: npm install
         working-directory: ./million-dollar-idea-ui
         run: npm install
+
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
 
       - name: Verify Angular CLI installation
         run: ng version
