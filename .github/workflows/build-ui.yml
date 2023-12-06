@@ -1,9 +1,9 @@
-name: Build Core
+name: Build UI
 
 on:
   push:
     paths:
-    - "million-dollar-idea-core/**"
+    - "million-dollar-idea-ui/**"
 
 jobs:
   my-job:
