@@ -3,7 +3,7 @@ name: build ogreg-public
 on:
   workflow_dispatch:
     paths:
-      - "frontend/**" # Only run if only a UI file has changed
+      - "frontend/ogreg-public/**" # Only run if only a UI file has changed
   pull_request:
     types: [ opened, synchronize, reopened ]
 
@@ -26,7 +26,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: npm install
-        working-directory: ./frontend
+        working-directory: ./frontend/ogreg-public
         run: npm install
 
       - name: Install Angular CLI
@@ -36,7 +36,7 @@ jobs:
         run: ng version
 
       - name: Build
-        working-directory: ./frontend
+        working-directory: ./frontend/ogreg-public
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
