@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install Angular CLI
-        run: npm install -g @angular/cli
+        run: npm install
 
       - name: Verify Angular CLI installation
         run: ng version
