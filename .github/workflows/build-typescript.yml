@@ -25,8 +25,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: go to million-dollar-idea-ui
-        run: cd million-dollar-idea-ui
+      - name: npm install
+        run: npm install ./million-dollar-idea-ui
 
       - name: pwd
         run: pwd
@@ -34,17 +34,11 @@ jobs:
       - name: list repository content
         run: ls -l
 
-      - name: npm install
-        run: npm install
-
       - name: Install Angular CLI
         run: npm install -g @angular/cli
 
       - name: Verify Angular CLI installation
         run: ng version
-
-      - name: list repository content
-        run: ls -l
 
       - name: Build
         working-directory: ./million-dollar-idea-ui # Make sure we run our UI commands in the UI directory
