@@ -43,6 +43,7 @@ jobs:
           npm run build
 
       - name: Build And Deploy
+        working-directory: ./million-dollar-idea-ui
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
