@@ -11,18 +11,27 @@ jobs:
   build:
     name: Build Typescript
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
 
-  steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+    steps:
+      - uses: actions/checkout@v2
         with:
-          node-version: 18
+          fetch-depth: 0
 
-      - name: Install dependencies
-        run: npm install
+      - name: Using Node ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache NPM packages
+        uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Build
         working-directory: ./million-dollar-idea-ui # Make sure we run our UI commands in the UI directory
