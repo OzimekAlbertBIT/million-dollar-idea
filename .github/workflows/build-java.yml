@@ -27,14 +27,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check IntelliJ Formatting
-        uses: sidhant92/intellij-format-action@v1
+      - name: Check Java Code Format
+        uses: axel-op/googlejavaformat-action@v3.6.0
         with:
-          tool_name: 'IntelliJ Diff'
-          github_token: ${{ secrets.github_token }}
-          fail_on_changes: true
-          path: '.'
-          file_mask: '*.java'
+          args: "--skip-sorting-imports --replace"
+          files: "**/*.java"
 
       - name: Using JDK 17
         uses: actions/setup-java@v3
