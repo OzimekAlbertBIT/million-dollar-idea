@@ -33,6 +33,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      - name: Verify Angular CLI installation
+        run: ng version
+
       - name: Build
         working-directory: ./million-dollar-idea-ui # Make sure we run our UI commands in the UI directory
         env:
