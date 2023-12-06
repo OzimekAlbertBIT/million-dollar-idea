@@ -11,11 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class SmokeTest {
 
-    @Autowired
-    private Controller controller;
+  @Autowired private Controller controller;
 
-    @Test
-    void contextLoads() throws Exception {
-        assertThat(controller).isNotNull();
-    }
+  @Test
+  void contextLoads() throws Exception {
+    assertThat(controller).isNotNull();
+  }
 }
