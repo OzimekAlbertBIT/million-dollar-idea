@@ -26,22 +26,14 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: npm install
-        run: npm install ./million-dollar-idea-ui
-
-      - name: pwd
-        run: pwd
-
-      - name: list repository content
-        run: ls -l
-
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
+        working-directory: ./million-dollar-idea-ui
+        run: npm install
 
       - name: Verify Angular CLI installation
         run: ng version
 
       - name: Build
-        working-directory: ./million-dollar-idea-ui # Make sure we run our UI commands in the UI directory
+        working-directory: ./million-dollar-idea-ui
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
