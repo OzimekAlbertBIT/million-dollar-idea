@@ -25,19 +25,17 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Cache NPM packages
-        uses: actions/cache@v2.1.4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install Angular CLI
         run: npm install
 
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
       - name: Verify Angular CLI installation
         run: ng version
+
+      - name: list repository content
+        run: ls -l
 
       - name: Build
         working-directory: ./million-dollar-idea-ui # Make sure we run our UI commands in the UI directory
