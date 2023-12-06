@@ -25,7 +25,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install Angular CLI
+      - name: pwd
+        run: pwd
+
+      - name: list repository content
+        run: ls -l
+
+      - name: npm install
         run: npm install
 
       - name: Install Angular CLI
